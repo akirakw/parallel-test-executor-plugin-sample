@@ -1,0 +1,10 @@
+allprojects {
+    plugins.withId('java') {
+        def f = file('exclusions.txt')
+        if (f.exists()) {
+            test {
+                exclude f.readLines('UTF-8')
+            }
+        }
+    }
+}
